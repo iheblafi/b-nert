@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Start colour of the animated splash (SplashColors.top in
+         lib/app/splash/animated_splash.dart), so the hand-over is seamless -->
+    <color name="splash_background">#0B2545</color>
+</resources>

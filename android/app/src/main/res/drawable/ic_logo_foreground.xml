@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Bamsenet clock logo: the end state of the Flutter splash animation
+     (lib/app/splash/animated_splash.dart, _ClockPainter). Keep in sync. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp" android:height="108dp"
+    android:viewportWidth="108" android:viewportHeight="108">
+    <path android:strokeColor="#FFFFFF" android:strokeWidth="2.66"
+        android:pathData="M32.00,54 a22,22 0 1,0 44.00,0 a22,22 0 1,0 -44.00,0" />
+    <path android:strokeColor="#80FFFFFF" android:strokeWidth="1.14" android:strokeLineCap="round"
+        android:pathData="M54.00,38.07 L54.00,35.41 M69.93,54.00 L72.59,54.00 M54.00,69.93 L54.00,72.59 M38.07,54.00 L35.41,54.00" />
+    <path android:strokeColor="#FFFFFF" android:strokeWidth="2.28" android:strokeLineCap="round"
+        android:pathData="M54,54 L45.64,54.00" />
+    <path android:strokeColor="#FFFFFF" android:strokeWidth="1.71" android:strokeLineCap="round"
+        android:pathData="M54,54 L65.81,47.18" />
+    <path android:fillColor="#5EE6A8" android:pathData="M51.72,54 a2.28,2.28 0 1,0 4.56,0 a2.28,2.28 0 1,0 -4.56,0" />
+    <path android:fillColor="#5EE6A8" android:pathData="M62.25,69.84 a7.59,7.59 0 1,0 15.18,0 a7.59,7.59 0 1,0 -15.18,0" />
+    <path android:strokeColor="#0B2545" android:strokeWidth="1.52" android:strokeLineCap="round" android:strokeLineJoin="round"
+        android:pathData="M66.81,69.84 L68.89,72.12 L73.25,67.56" />
+</vector>

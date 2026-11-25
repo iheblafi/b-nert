@@ -1,0 +1,4 @@
+{
+  "SUPABASE_URL": "https://your-supabase-host",
+  "SUPABASE_ANON_KEY": "public-anon-key"
+}

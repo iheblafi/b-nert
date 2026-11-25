@@ -1,0 +1,48 @@
+# iOS builds from Windows run on Codemagic (PLAN.md section 3).
+# Signing and the TestFlight upload are added once an Apple developer
+# account is available (task c6).
+workflows:
+  ios-check:
+    name: iOS build (unsigned)
+    instance_type: mac_mini_m2
+    max_build_duration: 30
+    environment:
+      flutter: 3.50.1
+      xcode: latest
+    triggering:
+      events: [push, pull_request]
+    scripts:
+      - name: Get packages
+        script: flutter pub get
+      - name: Tests
+        script: flutter test
+      - name: Build iOS without signing
+        script: flutter build ios --release --no-codesign
+
+  # Unsigned .ipa for sideloading from Windows (Sideloadly signs it with an
+  # Apple ID, valid 7 days). Run by hand from the Codemagic UI.
+  # Needs the secure variables SUPABASE_URL and SUPABASE_ANON_KEY in the
+  # Codemagic group "stage"; config/stage.json is never committed.
+  ios-sideload:
+    name: iOS unsigned IPA for sideloading
+    instance_type: mac_mini_m2
+    max_build_duration: 30
+    environment:
+      flutter: 3.50.1
+      xcode: latest
+      groups: [stage]
+    scripts:
+      - name: Get packages
+        script: flutter pub get
+      - name: Build iOS without signing
+        script: |
+          flutter build ios --release --no-codesign \
+            --dart-define=SUPABASE_URL="$SUPABASE_URL" \
+            --dart-define=SUPABASE_ANON_KEY="$SUPABASE_ANON_KEY"
+      - name: Package as .ipa
+        script: |
+          mkdir -p Payload
+          cp -R build/ios/iphoneos/Runner.app Payload/
+          zip -qr bamsenet-unsigned.ipa Payload
+    artifacts:
+      - bamsenet-unsigned.ipa
